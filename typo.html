@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Typo Website</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background-color: #111;
+            color: white;
+            text-align: center;
+            overflow-x: hidden;
+        }
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            position: relative;
+            background: linear-gradient(to right,#333,#1e1e1e);
+        }
+        .hero h1 {
+            font-size: 6rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            color: #fff;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.8), 0 0 40px rgba(255, 255, 255, 0.6);
+            animation: glow 1.5s infinite alternate;
+        }
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 20px rgba(255, 255, 255, 0.8), 0 0 40px rgba(255, 255, 255, 0.6);
+            }
+            to {
+                text-shadow: 0 0 30px rgba(255, 255, 255, 1), 0 0 60px rgba(255, 255, 255, 0.8);
+            }
+        }
+        .parallax {
+            height: 400px;
+            background: url('background.jpg') fixed center/cover;
+        }
+        .content {
+            padding: 70px;
+            font-size: 1.5rem;
+        }
+        .floating-shape {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+        }
+        .mockup {
+            width: 80%;
+            margin: auto;
+            display: block;
+            padding: 30px 0;
+        }
+    </style>
+</head>
+<body>
+    <header class="hero">
+        <h1 class="animated-text">Manavatha Creations</h1>
+        <div class="floating-shape" id="shape1"></div>
+        <div class="floating-shape" id="shape2"></div>
+    </header>
+    
+    <section class="parallax"></section>
+    
+    <section class="content">
+        <p class="fade-in-text">Love your neighbor as yourself</p>
+        <img src="help.jpg" class="mockup" alt="Typography Mockup">
+    </section>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script>
+        gsap.from(".animated-text", { duration: 2, opacity: 0, y: -50, ease: "bounce.out" });
+        gsap.from(".fade-in-text", { duration: 2, opacity: 0, delay: 1 });
+        
+        gsap.to("#shape1", {
+            x: "80vw",
+            y: "50vh",
+            scale: 1.5,
+            rotation: 360,
+            duration: 5,
+            repeat: -1,
+            yoyo: true,
+            ease: "power1.inOut"
+        });
+        
+        gsap.to("#shape2", {
+            x: "-80vw",
+            y: "-50vh",
+            scale: 0.5,
+            rotation: -360,
+            duration: 6,
+            repeat: -1,
+            yoyo: true,
+            ease: "power1.inOut"
+        });
+    </script>
+</body>
+</html>
